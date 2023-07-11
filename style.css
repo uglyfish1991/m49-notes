@@ -40,5 +40,7 @@ a{
 }
 
 a:hover{
-    border-color:#F5B32F;
+    color: #dc7d01;
+    border-color: #F5B32F;
 }
+

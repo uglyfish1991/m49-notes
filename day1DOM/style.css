@@ -1,7 +1,16 @@
+body{
+    text-align: center;
+}
+
 img{
     display: block;
+    margin: 10px auto;
 }
 
 .hidden{
     display: none;
+}
+
+section{
+    min-height: 60vh;
 }
