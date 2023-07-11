@@ -15,24 +15,24 @@ submitBtn.addEventListener("click", ()=>{
     toDoInput.value = "";
 })
 
-// removeBtn.addEventListener("click",()=>{
-//     const lastLiItem = document.querySelector("li:last-child");
-//     list.removeChild(lastLiItem)
-// })
+removeBtn.addEventListener("click",()=>{
+    const lastLiItem = document.querySelector("li:last-child");
+    list.removeChild(lastLiItem)
+})
 
 // //-------- Surprise Button-----------------//
 
-// const surpriseBtn = document.getElementById("surpriseBtn")
-// const heading = document.getElementById("heading")
+const surpriseBtn = document.getElementById("surpriseBtn")
+const heading = document.getElementById("heading")
 
-// surpriseBtn.addEventListener("click",()=>{
-//     heading.textContent = "SURPRISE!";
+surpriseBtn.addEventListener("click",()=>{
+    heading.textContent = "SURPRISE!";
 
-//     setTimeout(()=>{
-//         heading.textContent = ""
-//     },3000)
-// }
-// )
+    setTimeout(()=>{
+        heading.textContent = ""
+    },3000)
+}
+)
 
 
 const allListItems = [...document.getElementsByTagName("li")]
