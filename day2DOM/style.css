@@ -1,0 +1,19 @@
+body{
+    text-align: center;
+}
+
+button{
+    display: block;
+    margin: 10px auto;
+}
+
+summary{
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgb(236, 243, 245);
+    width: 90%;
+}
+
+pre{
+    text-align: left;
+}

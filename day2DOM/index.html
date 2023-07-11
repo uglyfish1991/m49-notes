@@ -1,45 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day2DOM</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>To Do List</h1>
-
-    <input type="text" id="toDoInput">
-    <button id="submitBtn">Submit</button>
-    <button id="removeBtn">Remove Last Item</button>
-
-    <ul id="list">
-        <li> Eat breakfast</li>
-        <li> Walk dog</li>
-        <li> Buy dinosaur</li>
-        <li> Drink coffee</li>
-        <li> Clean shed</li>
-        <li> Visit B & Q</li>
-        <li> Visit Mark's outhouses</li>
-    </ul>
-
+    <h1>Welcome to JS DOM ++</h1>
     <hr>
+    <section>
+        <h1>To Do List</h1>
+        <p>This section shows a list, which the user can add to freely. The user can also delete the last item in the
+            list, or they can click on a list item to delete it. </p>
+        <input type="text" id="toDoInput">
+        <button id="submitBtn">Submit</button>
+        <button id="removeBtn">Remove Last Item</button>
 
+        <ul id="list">
+            <li> Eat breakfast</li>
+            <li> Walk dog</li>
+            <li> Buy dinosaur</li>
+            <li> Drink coffee</li>
+            <li> Clean shed</li>
+            <li> Visit B & Q</li>
+            <li> Visit Mark's outhouses</li>
+        </ul>
+        <summary>
+            See Code:
+            <details>
+                <pre>
+            //Variables:
+                const toDoInput = document.getElementById("toDoInput");
+                const submitBtn = document.getElementById("submitBtn")
+                const list = document.getElementById("list")
+                const removeBtn = document.getElementById("removeBtn")
+                const allListItems = [...document.getElementsByTagName("li")]
+
+            //Functionality to add new item:
+                submitBtn.addEventListener("click", ()=>{
+                    const listItem = document.createElement("li");
+                    listItem.textContent = toDoInput.value;
+                    console.log(listItem);
+                    list.appendChild(listItem);
+                    toDoInput.value = "";
+                })
+
+            //Functionality to remove last item:
+                removeBtn.addEventListener("click",()=>{
+                    const lastLiItem = document.querySelector("li:last-child");
+                    list.removeChild(lastLiItem)
+                })
+
+            //Functionality to remove ALREADY LISTED items by click:
+                allListItems.forEach((listItem)=>{
+                    listItem.addEventListener("click",(event)=>{
+                        list.removeChild(event.target)
+                    })
+                })
+
+            //Functionality to remove all list items including added ones:
+                list.addEventListener("click", (event)=>{
+                    list.removeChild(event.target);
+                })
+            </pre>
+            </details>
+        </summary>
+
+    </section>
+    <hr>
+<h1>setTimeout()</h1>
+<p>This section shows how we can use setTimeout to delay something.</p>
     <h1 id="heading"></h1>
     <button id="surpriseBtn">Click for a Surprise!</button>
+
+    <summary>
+        See code:
+        <details>
+            <pre>
+            //Variables:
+                const surpriseBtn = document.getElementById("surpriseBtn")
+                const heading = document.getElementById("heading")
+
+            //Functionality for click event:
+                surpriseBtn.addEventListener("click",()=>{
+                    heading.textContent = "SURPRISE!";
+                
+                    setTimeout(()=>{
+                        heading.textContent = ""
+                    },3000)}
+                    )
+            </pre>
+        </details>
+    </summary>
 
     <hr>
     <div>
         <h1>My Pop-Up Box</h1>
-        <p>Some Text</p>
+        <p>This section shows up how we can use DOM traversal to target elements based on their relationship to other elements</p>
         <button id="closeBtn">Close Pop-Up</button>
     </div>
 
     <button id="openBtn">Open Pop-Up</button>
+    <summary>
+        See code:
+        <details>
+        <pre>
+            //Variables:
+                const closeBtn = document.getElementById("closeBtn")
+                const openBtn = document.getElementById("openBtn")
+                
+            //Functionality for closing parent div
+                closeBtn.addEventListener("click", ()=>{
+                    closeBtn.parentNode.style.display="none";
+                })
+            
+            //Functionality for opening parent div
+                openBtn.addEventListener("click", ()=>{
+                    openBtn.previousElementSibling.style.display="block";
+                })
+        </pre>
+        </details>
+    </summary>
 
     <script src="script.js">
 
     </script>
 </body>
+
 </html>
